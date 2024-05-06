@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const history = useHistory();
+
 
   const handleLogin = () => {
     if (!username || !password) {
@@ -11,11 +14,13 @@ const Login = () => {
       return;
     }
     if (username === 'user123' && password === 'pass123') {
-        console.log('Login successful');
-      } else {
-        setError('Invalid username or password');
-      }
-    };
+      console.log('Login successful');
+      history.push('/ChatBotScreen'); 
+    } else {
+      setError('Invalid username or password');
+    }
+  };
+
     return (
         <div>
           <h2>Login</h2>
@@ -37,7 +42,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button onClick={handleLogin}>Login</button>
       </form>
     </div>
   );
