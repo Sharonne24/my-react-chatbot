@@ -19,4 +19,11 @@ const ChatbotScreen = () => {
       setPlaceholder('Enter your query here...');
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Logic to send query to chatbot and display response
+    console.log(`Query: ${query}, Department: ${department}`);
+    // Reset query field
+    setQuery('');
+  };
   
