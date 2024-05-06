@@ -10,3 +10,11 @@ const Login = () => {
       setError('Please enter both username and password');
       return;
     }
+    if (username === 'user123' && password === 'pass123') {
+        // Navigate to the chatbot screen
+        // You can use history.push('/chatbot') if using React Router
+        console.log('Login successful');
+      } else {
+        setError('Invalid username or password');
+      }
+    };
